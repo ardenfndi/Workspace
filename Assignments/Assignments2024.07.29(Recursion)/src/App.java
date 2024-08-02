@@ -19,7 +19,7 @@ public class App {
 }
 
 
-/* 
+/* User girişli
 public class App{ 
 
 static int factorial(int n){
