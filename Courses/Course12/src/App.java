@@ -1,5 +1,9 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -143,5 +147,54 @@ public class App {
                 John, 2004, Physics
                 Alice, 2005, Mathematics
         */
+
+        // 20. Write to file
+        // File file = new File("students.txt");
+        // String data = "Emre, 2003, Computer Science\nJohn, 2004, Physics\nAlice, 2005, Mathematics";
+
+        // try {
+        //     FileWriter writer = new FileWriter(file);
+        //     writer.write(data);
+        //     writer.close(); // Close the file
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+
+        // System.out.println("Data written to file");
+
+        // 21. Read from file
+        // File file = new File("students.txt");
+        // try {
+        //     Scanner scanner = new Scanner(file);
+        //     while (scanner.hasNextLine()) {
+        //         String line = scanner.nextLine();
+        //         System.out.println(line);
+        //     }
+        // } catch (FileNotFoundException e) {
+        //     e.printStackTrace();
+        // }
+
+        // 22. Extract data from file
+        // File file = new File("students.txt");
+        // try {
+        //     Scanner scanner = new Scanner(file);
+        //     while (scanner.hasNextLine()) {
+        //         String line = scanner.nextLine();
+        //         String[] parts = line.split(", ");
+        //         String name = parts[0];
+        //         int year = Integer.parseInt(parts[1]);
+        //         String major = parts[2];
+
+        //         System.out.println("Name: " + name);
+        //         System.out.println("Year: " + year);
+        //         System.out.println("Major: " + major);
+        //         System.out.println();
+        //     }
+        // } catch (FileNotFoundException e) {
+        //     e.printStackTrace();
+        // }
+
+        
+
     }
 }
