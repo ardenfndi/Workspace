@@ -18,38 +18,32 @@ public class StudentManager {
 
     public void addStudent(Student student){
         students.add(student);
-        writeToFile(student);    
+        writeToFile();
     }
-    
-    public void writeToFile(Student student){
-        try {
-            FileWriter writer = new FileWriter(fileName, true);
-            writer.write(student.getName() + ", " + student.getEnrollmentYear() + ", " + student.getMajor() + "\n");
-            writer.close();
+
+    private void writeToFile(){
+        try (FileWriter writer = new FileWriter(fileName)) {
+            for (Student student : students) {
+                writer.write(student.getName() + ", " + student.getEnrollmentYear() + ", " + student.getMajor() + "\n");
+            }
         } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();
-        }      
+        }
     }
 
     public List<Student> readStudentsFromFile(){
-        File file = new File(fileName);
-        Scanner scanner;
-        try {
-            scanner = new Scanner(file);
+        students.clear();
+        try (Scanner scanner = new Scanner(new File(fileName))) {
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
                 String[] data = line.split(", ");
-                String name = data[0];
-                int enrollmentYear = Integer.parseInt(data[1]);
-                String major = data[2];
-    
-                students.add(new Student(name, enrollmentYear, major));
+                students.add(new Student(data[0], Integer.parseInt(data[1]), data[2]));
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error");
             e.printStackTrace();
-        }   
+        }
         return students;
     }
     
@@ -69,27 +63,25 @@ public class StudentManager {
         for(Student student : students){
             if(student.getName().equals(name)){
                 student.setMajor(newMajor);
-                File file = new File(fileName);
-                file.delete();
-
-                for(Student s : students){
-                    writeToFile(s);
-                }
             }
         }
+        writeToFile();
     }
 
     public void deleteStudentName(String name){
-        for(Student student : students){
-            if(student.getName().equals(name)){
-                students.remove(student);
-                File file = new File(fileName);
-                file.delete();
-
-                for(Student s : students){
-                    writeToFile(s);
-                }
-            }
-        }
+        students.removeIf(student -> student.getName().equals(name));
+        writeToFile();
     }
+
+    public void addStudent(String name, int enrollmentYear, String major) {
+        Student student = new Student(name, enrollmentYear, major);
+        addStudent(student);
+    }
+
+    public void addStudent(List<Student> students) {
+        this.students.addAll(students);
+        writeToFile();
+    }
+    
+    
 }

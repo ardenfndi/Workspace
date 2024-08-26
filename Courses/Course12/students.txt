@@ -1,5 +1,1 @@
-Emre, 2003, Computer Science
-John, 2004, Physics
-Alice, 2005, Mathematics
-Mary, 2006, Biology 
-George, 2002, Chemistry
+John, 2004, Mathematics

@@ -36,6 +36,6 @@ public class Student {
     }
 
     public String toString(){
-        return "Name: " + name + "Enrollment year: " + enrollmentYear + "Major: " + major;
+        return "Name: " + name + " Enrollment year: " + enrollmentYear + " Major: " + major;
     }
 }
