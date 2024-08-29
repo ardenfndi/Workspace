@@ -12,6 +12,4 @@ public class Main {
         manager.deleteStudentName("Emre");
         manager.displayAllStudents();
     }
-
-    
 }

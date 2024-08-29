@@ -32,7 +32,7 @@ public class StudentManager {
         }
     }
 
-    public List<Student> readStudentsFromFile(){
+    public void readStudentsFromFile(){
         students.clear();
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while(scanner.hasNextLine()){
@@ -44,7 +44,6 @@ public class StudentManager {
             System.out.println("Error");
             e.printStackTrace();
         }
-        return students;
     }
     
     public void displayAllStudents(){
