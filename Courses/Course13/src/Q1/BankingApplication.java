@@ -171,71 +171,61 @@ public class BankingApplication {
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            System.out.println("\nWelcome to the Banking Application");
+            System.out.println("1. Create a new account");
+            System.out.println("2. Deposit money");
+            System.out.println("3. Withdraw money");
+            System.out.println("4. View account details");
+            System.out.println("5. Delete an account");
+            System.out.println("6. Save account to file");
+            System.out.println("7. Load accounts from file");
+            System.out.println("8. Exit");
+            System.out.println("Enter your choice: ");
+            int choice = scanner.nextInt();
 
-        System.out.println("\nWelcome to the Banking Application");
-        System.out.println("1. Create a new account");
-        System.out.println("2. Deposit money");
-        System.out.println("3. Withdraw money");
-        System.out.println("4. View account details");
-        System.out.println("5. Delete an account");
-        System.out.println("6. Save account to file");
-        System.out.println("7. Load accounts from file");
-        System.out.println("8. Exit");
-        System.out.println("Enter your choice: ");
-        int choice = scanner.nextInt();
+            switch(choice){
+                case 1:
+                    createAccount();
+                    break;
+                case 2:
+                    System.out.println("Enter Account Number: ");
+                    String accountNumber = scanner.next();
 
-        switch(choice){
-            
-            case 1:
-            createAccount();
-            break;
-            
-            case 2:
-            System.out.println("Enter Account Number: ");
-            String accountNumber = scanner.next();
+                    System.out.println("Enter Deposit Amount: ");
+                    double amount = scanner.nextDouble();
 
-            System.out.println("Enter Deposit Amount: ");
-            double amount = scanner.nextDouble();
+                    depositMoney(accountNumber, amount);
+                    break;
+                case 3:
+                    System.out.println("Enter Account Number: ");
+                    String accountNumber2 = scanner.next();
 
-            depositMoney(accountNumber, amount);
-            break;
+                    System.out.println("Enter Withdraw Amount: ");
+                    double withdrawAmount = scanner.nextDouble();
 
-            case 3:
-            System.out.println("Enter Account Number: ");
-            String accountNumber2 = scanner.next();
+                    withdrawMoney(accountNumber2, withdrawAmount);
+                    break;
+                case 4:
+                    System.out.println("Enter Account Number: ");
+                    String accountNumber3 = scanner.next();
 
-            System.out.println("Enter Withdraw Amount: ");
-            double withdrawAmount = scanner.nextDouble();
-
-            withdrawMoney(accountNumber2, withdrawAmount);
-            break;
-
-            case 4:
-            System.out.println("Enter Account Number: ");
-            String accountNumber3 = scanner.next();
-
-            viewAccountDetails(accountNumber3);
-            break;
-
-            case 5:
-            System.out.println("Enter Account Number: ");
-            String accountNumber4 = scanner.next();
-            
-            deleteAccount(accountNumber4);
-            break;
-
-            case 6:
-            saveAccountsToFile();
-            break;
-
-            case 7:
-            loadAccountsFromFile();
-            break;
-
-            case 8:
-            System.out.println("Thank you for using the Banking Application!");
-            return;
-
+                    viewAccountDetails(accountNumber3);
+                    break;
+                case 5:
+                    System.out.println("Enter Account Number: ");
+                    String accountNumber4 = scanner.next();
+                    
+                    deleteAccount(accountNumber4);
+                    break;
+                case 6:
+                    saveAccountsToFile();
+                    break;
+                case 7:
+                    loadAccountsFromFile();
+                    break;
+                case 8:
+                    System.out.println("Thank you for using the Banking Application!");
+                    return;
             }
         }
     }
