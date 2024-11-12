@@ -1,24 +1,21 @@
 public class AlienPack {
-    private Alien[] aliens;
+    private Alien[] alienArray;
 
-    public AlienPack(int numAliens) {
-        aliens = new Alien[numAliens];
+    public AlienPack(int alienCount) {
+        alienArray = new Alien[alienCount];
     }
 
-    public void addAlien(Alien newAlien, int index){
-        aliens[index] = newAlien;
+    public void addAlien(Alien alien, int index) {
+        alienArray[index] = alien;
     }
-
-    public Alien[] getAliens(){
-        return aliens;
+    public Alien[] getAliens() {
+        return alienArray;
     }
-
-    public int calculateDamage(){
-        int damage = 0;
-        for(Alien alien : aliens){
-            damage += alien.getDamage();
+    public int calculateTotalDamage() {
+        int totalDamage = 0;
+        for (Alien alien : alienArray) {
+            totalDamage += alien.getDamage();
         }
-        return damage;
+        return totalDamage;
     }
-    
 }

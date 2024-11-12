@@ -6,6 +6,6 @@ public class Main {
         pack.addAlien(new MarshmallowManAlien(100, "Marshmallow Alien"), 2);
         pack.addAlien(new ChocolateAlien(100, "Chocolate Alien"), 3);
 
-        System.out.println("Total damage: " + pack.calculateDamage());
+        System.out.println("Total damage: " + pack.calculateTotalDamage());
     }
 }

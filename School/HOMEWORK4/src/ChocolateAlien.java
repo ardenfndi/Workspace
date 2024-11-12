@@ -6,5 +6,4 @@ public class ChocolateAlien extends Alien {
     public int getDamage(){
         return 1;
     }
-    
 }

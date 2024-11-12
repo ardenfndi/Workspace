@@ -6,5 +6,4 @@ public class SasquatchAlien extends Alien {
     public int getDamage(){
         return 8;
     }
-    
 }
